@@ -42,16 +42,28 @@ class AllKeySales:
         curr_url = driver.current_url
         print("Current game URL: \n" + curr_url)
         
-        driver.quit()
-
         return getGames
 
-
-if __name__ == "__main__":
-
+def find_game():
     serached = input("Enter game name: ")
 
     sales = AllKeySales.KeySales(serached)
+    
 
     for key, value in sales.items() :
         print (key, value)
+
+if __name__ == "__main__":
+
+    while True:
+        find_game()
+
+        prompt = input('Would you like to quit? (y/n): ')
+        
+        if prompt == 'y':
+            break
+        elif prompt == 'n':
+            continue
+        else:
+            print('Answer with y or n')
+            prompt = input('Would you like to quit? (y/n): ')
